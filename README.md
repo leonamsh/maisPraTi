@@ -28,12 +28,22 @@ Este repositório serve como central de aprendizado e evolução durante a forma
 │   ├── anotações.md
 │   └── atividades/
 ├── modulo-02-front-end/
-│   ├── projetos/
-│   └── desafios/
+│   ├── anotações.md
+│   └── atividades/
 ├── modulo-03-web-react/
+│   ├── anotações.md
+│   └── atividades/
 ├── modulo-04-java-spring/
+│   ├── anotações.md
+│   └── atividades/
 ├── modulo-05-back-end/
+│   ├── anotações.md
+│   └── atividades/
 ├── modulo-06-python/
+│   ├── anotações.md
+│   └── atividades/
 ├── projetos-finais/
+│   ├── anotações.md
+│   └── atividades/
 └── README.md
 ```
