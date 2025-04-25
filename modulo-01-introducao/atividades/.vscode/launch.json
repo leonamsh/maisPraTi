@@ -1,0 +1,9 @@
+{
+  "type": "node",
+  "request": "launch",
+  "name": "Debug com variáveis",
+  "program": "${workspaceFolder}/modulo-01-introducao/atividades/24-04-EX1.js",
+  "env": {
+    "DEBUG": "true"
+  }
+}
