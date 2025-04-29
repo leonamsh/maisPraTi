@@ -2,8 +2,8 @@
 let numero = 0;
 let multiplicador = 3;
 let resultado = 0;
-while (numero < 10) {
+do {
   numero++;
   resultado = numero * multiplicador;
   console.log(`${numero} * ${multiplicador} = ${resultado}`);
-}
+} while (numero < 10);
