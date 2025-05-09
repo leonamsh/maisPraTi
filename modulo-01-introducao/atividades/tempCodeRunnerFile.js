@@ -1,10 +1,23 @@
-let numeros = [10, 8, 6, 4, 2, 1, 3, 5, 7, 9];
-
-function somaArray(arr) {
-  let soma = 0;
-  for (let i = 0; i < arr.length; i++) {
-    soma += arr[i];
-    return soma;
+function somaMatrizes(matriz1, matriz2) {
+  let resultado = [];
+  for (let i = 0; i < matriz1.length; i++) {
+    resultado[i] = [];
+    for (let j = 0; j < matriz1[i].length; j++) {
+      resultado[i][j] = matriz1[i][j] + matriz2[i][j];
+    }
   }
+  return resultado;
 }
-console.log(somaArray(numeros));
+let matriz1 = [
+  [1, 2],
+  [3, 4],
+];
+let matriz2 = [
+  [5, 6],
+  [7, 8],
+];
+console.table(matriz1);
+console.table(matriz2);
+console.log("Soma das matrizes:");
+let resultado = somaMatrizes(matriz1, matriz2);
+console.table(resultado);

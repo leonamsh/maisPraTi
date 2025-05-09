@@ -1,37 +1,48 @@
-//Exercício 4 - definam faixas etárias para crianças, adolecsentes, adultos e idosos e com switch apresentem na tela se a pessoa que informou a idade está em uma e qual a faixa etária
-
-const readline = require("readline");
+// Exercício 4 - Classificação por faixa etária
+import readline from "readline";
+import { stdin as input, stdout as output } from "process";
 
 const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
+  input,
+  output,
 });
 
 function perguntar(pergunta) {
   return new Promise((resolve) => rl.question(pergunta, resolve));
 }
-async function main() {
-  const resposta = await perguntar("Qual a sua idade? ");
-  const idade = parseInt(resposta);
 
+function classificarFaixaEtaria(idade) {
   switch (true) {
     case idade >= 0 && idade <= 12:
-      console.log("Você é uma Criança.");
-      break;
+      return "Criança";
     case idade >= 13 && idade <= 17:
-      console.log("Você é um Adolescente.");
-      break;
+      return "Adolescente";
     case idade >= 18 && idade <= 59:
-      console.log("Você é um Adulto.");
-      break;
+      return "Adulto";
     case idade >= 60:
-      console.log("Você é um Idoso.");
-      break;
+      return "Idoso";
     default:
-      console.log("Idade inválida.");
+      return "Idade inválida";
   }
+}
 
-  rl.close();
+async function main() {
+  try {
+    const resposta = await perguntar("Qual a sua idade? ");
+    const idade = parseInt(resposta);
+
+    if (isNaN(idade) || idade < 0) {
+      console.log("Por favor, digite uma idade válida (número positivo).");
+      return;
+    }
+
+    const faixa = classificarFaixaEtaria(idade);
+    console.log(`Você é um(a) ${faixa}.`);
+  } catch (error) {
+    console.error("Ocorreu um erro:", error);
+  } finally {
+    rl.close();
+  }
 }
 
 main();

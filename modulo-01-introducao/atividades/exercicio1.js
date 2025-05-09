@@ -1,9 +1,10 @@
-//Exercício 1 - Calculadora
-const readline = require("readline");
+// Exercício 1 - Calculadora
+import readline from "readline";
+import { stdin as input, stdout as output } from "process";
 
 const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
+  input,
+  output,
 });
 
 function perguntar(pergunta) {
@@ -11,38 +12,41 @@ function perguntar(pergunta) {
 }
 
 async function calculadoraSimples() {
-  const operacao = await perguntar("Escolha a operação (+, -, *, /): ");
-  const num1 = parseFloat(await perguntar("Digite o primeiro número: "));
-  const num2 = parseFloat(await perguntar("Digite o segundo número: "));
+  try {
+    const operacao = await perguntar("Escolha a operação (+, -, *, /): ");
+    const num1 = parseFloat(await perguntar("Digite o primeiro número: "));
+    const num2 = parseFloat(await perguntar("Digite o segundo número: "));
 
-  let resultado;
+    let resultado;
 
-  switch (operacao) {
-    case "+":
-      resultado = num1 + num2;
-      break;
-    case "-":
-      resultado = num1 - num2;
-      break;
-    case "*":
-      resultado = num1 * num2;
-      break;
-    case "/":
-      if (num2 === 0) {
-        console.log("Não é possível dividir por zero!");
-        rl.close();
+    switch (operacao) {
+      case "+":
+        resultado = num1 + num2;
+        break;
+      case "-":
+        resultado = num1 - num2;
+        break;
+      case "*":
+        resultado = num1 * num2;
+        break;
+      case "/":
+        if (num2 === 0) {
+          console.log("Não é possível dividir por zero!");
+          return;
+        }
+        resultado = num1 / num2;
+        break;
+      default:
+        console.log("Operação inválida!");
         return;
-      }
-      resultado = num1 / num2;
-      break;
-    default:
-      console.log("Operação inválida!");
-      rl.close();
-      return;
-  }
+    }
 
-  console.log(`Resultado: ${resultado}`);
-  rl.close();
+    console.log(`Resultado: ${resultado}`);
+  } catch (error) {
+    console.error("Ocorreu um erro:", error);
+  } finally {
+    rl.close();
+  }
 }
 
 calculadoraSimples();
