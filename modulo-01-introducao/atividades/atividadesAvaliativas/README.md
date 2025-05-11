@@ -16,7 +16,7 @@ Este projeto contém a resolução dos exercícios avaliativos do módulo 01 do 
 1. **Abra o terminal dentro da pasta do projeto**:
 
 ```bash
-cd caminho/para/atividadesAvaliativas
+cd modulo-01-introducao/atividades/atividadesAvaliativas
 ```
 
 2. **Inicialize o projeto Node (se ainda não tiver feito):**

@@ -3,19 +3,28 @@
 const prompt = require("prompt-sync")({ sigint: true });
 
 function ex4() {
-  const opcao = prompt("Ex4 - Escolha uma opção:\n1. Olá\n2. Ajuda\n3. Sair\n");
-  switch (opcao) {
-    case "1":
-      console.log("Você escolheu Olá!");
-      break;
-    case "2":
-      console.log("Você escolheu Ajuda.");
-      break;
-    case "3":
-      console.log("Saindo...");
-      break;
-    default:
-      console.log("Opção inválida.");
-  }
+  let opcao;
+  do {
+    console.log("\n=== Menu Interativo ===");
+    console.log("1. Olá");
+    console.log("2. Ajuda");
+    console.log("3. Sair");
+    opcao = prompt("Escolha uma opção: ");
+
+    switch (opcao) {
+      case "1":
+        console.log("Você escolheu Olá!");
+        break;
+      case "2":
+        console.log("Você escolheu Ajuda.");
+        break;
+      case "3":
+        console.log("Saindo... Até logo!");
+        break;
+      default:
+        console.log("Opção inválida. Tente novamente.");
+    }
+  } while (opcao !== "3");
 }
+
 module.exports = ex4;
