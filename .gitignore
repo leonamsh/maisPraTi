@@ -1,2 +1,2 @@
-# Ignora TUDO no diretório
-/maisPraTi/modulo-01-introducao/atividades/node_modules/
+# Ignora todos os node_modules do projeto
+node_modules/
