@@ -198,11 +198,93 @@
 // console.log(`fibonacci de 20 => ${fibonacci(20)}`); // [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181]
 
 //função PA - Progressão Aritmética
-let pa = (n) => {
-  let pa = [];
-  for (let i = 0; i < n; i++) {
-    pa.push(i * 2);
+// let pa = (n) => {
+//   let pa = [];
+//   for (let i = 0; i < n; i++) {
+//     pa.push(i * 2);
+//   }
+//   return pa;
+// };
+// console.log(`PA de 10 => ${pa(10)}`); // [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+// //
+// //
+
+// function fatorial(n) {
+//   if (n === 0) {
+//     return 1
+//   } else {
+//     return n * fatorial(n-1)
+//   }
+// }
+
+// console.log(fatorial(5));
+//
+
+//soma dos números de 1 até N
+//
+
+// function soma(n) {
+//   if (n===0) {
+//     return 0
+//   }  else {
+//     return n + soma(n-1)
+//   }
+// }
+// //resultado esperado:
+// // 5 + (soma(5-1) = 4)
+// // 4 + (soma(4-1) = 3)
+// // 3 + (soma(3-1) = 2)
+// // 2 + (soma(2-1) = 1)
+// // 1 + (soma(1-1) = 0)
+// // 0 -> return
+// // 5 + 4 + 3 + 2 + 1 = 15
+// console.log(soma(5));
+
+//fibonacci recursivo
+
+// function fibonacci(n) {
+//     if (n <= 0) return 0; // Caso base: Fibonacci(0) = 0
+//     if (n === 1) return 1; // Caso base: Fibonacci(1) = 1
+//     return fibonacci(n - 1) + fibonacci(n - 2); // Passo recursivo
+// }
+
+// console.log(fibonacci(5)); // Saída: 5 (0, 1, 1, 2, 3, 5)
+// console.log(fibonacci(10)); // Saída: 55
+//
+let categorias = [
+  {
+    id: 1,
+    nome: 'eletrônicos',
+    filhos: [
+      {id: 2, nome: 'celulares', filhos: [] },
+      {id: 3, nome: 'computadores', filhos: [
+        {id: 4, nome: 'tablets', filhos: [] },
+      ]},
+    ]
+  },
+  {
+    id: 5,
+    nome: 'roupas',
+    filhos: []
   }
-  return pa;
-};
-console.log(`PA de 10 => ${pa(10)}`); // [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+]
+
+function imprimirCategorias(categorias, nivel = 0) {
+  for (const categoria of categorias) {
+    console.log(" ".repeat(nivel * 4) + categoria.nome);
+
+    if (categoria.filhos && categoria.filhos.length > 0) {
+      imprimirCategorias(categoria.filhos, nivel + 1);
+    }
+  }
+}
+
+imprimirCategorias(categorias);
+
+//resultado esperado
+// eletronicos
+//     celulares
+//     compudatores
+//         tablets
+// roupas
+//
