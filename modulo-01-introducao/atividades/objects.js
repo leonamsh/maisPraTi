@@ -254,20 +254,22 @@
 let categorias = [
   {
     id: 1,
-    nome: 'eletrônicos',
+    nome: "eletrônicos",
     filhos: [
-      {id: 2, nome: 'celulares', filhos: [] },
-      {id: 3, nome: 'computadores', filhos: [
-        {id: 4, nome: 'tablets', filhos: [] },
-      ]},
-    ]
+      { id: 2, nome: "celulares", filhos: [] },
+      {
+        id: 3,
+        nome: "computadores",
+        filhos: [{ id: 4, nome: "tablets", filhos: [] }],
+      },
+    ],
   },
   {
     id: 5,
-    nome: 'roupas',
-    filhos: []
-  }
-]
+    nome: "roupas",
+    filhos: [],
+  },
+];
 
 function imprimirCategorias(categorias, nivel = 0) {
   for (const categoria of categorias) {
