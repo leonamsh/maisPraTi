@@ -1,6 +1,6 @@
 # 📚 Atividades Avaliativas 2 - Módulo 01 (Introducao a Programacao)
 
-Este projeto contem a resolucao dos exercicios avaliativos 2 do modulo 01 do curso **MaisPraTi**. Cada exercicio esta modularizado em seu proprio arquivo, e ha um menu interativo para execucao via terminal.
+Este projeto contem a resolucao dos exercicios avaliativos 2 do modulo 01 do curso **MaisPraTi**. Cada exercicio esta modularizado em seu proprio arquivo.
 
 ---
 
