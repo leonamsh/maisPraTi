@@ -144,13 +144,17 @@ let data2 = new Date("2025, 7, 7");
 console.log(data1.getTime());
 console.log(data2.getTime());
 let milissegundosEntreDatas = Math.abs(data1.getTime() - data2.getTime());
-console.log(`A diferença entre as datas é de ${milissegundosEntreDatas} milissegundos.`);
+console.log(
+  `A diferença entre as datas é de ${milissegundosEntreDatas} milissegundos.`,
+);
 
 console.log(milissegundosEntreDatas);
 
 let milissegundosPorDia = 24 * 60 * 60 * 1000;
 
-console.log(`A diferença entre as datas é de: ${milissegundosEntreDatas / milissegundosPorDia} millisegundos.`);
+console.log(
+  `A diferença entre as datas é de: ${milissegundosEntreDatas / milissegundosPorDia} millisegundos.`,
+);
 
 //Formatar uma data
 
