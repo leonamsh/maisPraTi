@@ -1,31 +1,67 @@
-# Exercícios de Lógica de Programação
+# ğŸ“š Atividades Avaliativas 2 - MÃ³dulo 01 (Introducao a Programacao)
 
-Este repositório contém as soluções para uma série de exercícios de lógica de programação, focando em estruturas de controle avançadas, funções, recursão, e manipulação de arrays e objetos.
+Este projeto contem a resolucao dos exercicios avaliativos 2 do modulo 01 do curso **MaisPraTi**. Cada exercicio esta modularizado em seu proprio arquivo, e ha um menu interativo para execucao via terminal.
 
-## Como Configurar e Executar os Exercícios Localmente
+---
 
-Para rodar estes exercícios, você precisará ter o Node.js instalado na sua máquina.
+## âœ… Pre-requisitos
 
-### Pré-requisitos
+- **Node.js** (versao recomendada: 18 ou superior)
+- **Terminal**
 
-* **Node.js**: Se você ainda não tem o Node.js instalado, você pode baixá-lo e instalá-lo a partir do site oficial: [https://nodejs.org/](https://nodejs.org/)
+---
 
-### Passos para Executar
+## ğŸš€ Como rodar
 
-1.  **Clone este repositório (ou copie os arquivos):**
-    Se você estiver usando Git, pode clonar o repositório para o seu computador:
+1.  **Abra o terminal dentro da pasta do projeto**:
+
     ```bash
     git clone https://github.com/leonamsh/maisPraTi.git
     cd maisPraTi/modulo-01-introducao/atividades/atividadesAvaliativas/listaExercicios2
     ```
-    (Se você apenas copiou os arquivos, navegue até a pasta onde eles estão salvos.)
 
-2.  **Execute cada exercício individualmente:**
-    Abra o seu terminal ou prompt de comando, navegue até a pasta onde você salvou os arquivos dos exercícios e use o comando `node` seguido do nome do arquivo `.js` que deseja executar.
+2.  **Inicialize o projeto Node (se ainda nao tiver feito):**
 
-    Por exemplo, para rodar o Exercício 1:
     ```bash
-    node exercicio1.js
+    npm init -y
     ```
+---
 
-    Repita o comando `node` com o nome do arquivo para cada exercício que você quiser testar (ex: `node exercicio2.js`, `node exercicio3.js`, etc.).
+## â–¶ï¸ Executando os exercicios
+
+Abra o seu terminal na pasta do projeto e use o comando `node` seguido do nome do arquivo `.js`:
+
+```bash
+node exercicio1.js
+# ou
+node exercicio2.js
+# e assim por diante para cada exercicio (exercicio1.js ate exercicio9.js)
+
+ğŸ§© Organizacao
+
+    Cada exercicio esta em um arquivo separado: exercicio1.js, exercicio2.js, ..., exercicio9.js
+
+ğŸ“Œ Observacoes
+
+    Todos os exercicios estao escritos em JavaScript puro.
+
+    Modularizacao facilita a manutencao e leitura do codigo.
+
+    Codigo 100% executavel via terminal, sem necessidade de navegador.
+
+ğŸ“ Estrutura do projeto
+
+seu-projeto/
+â”‚
+â”œâ”€â”€ exercicio1.js
+â”œâ”€â”€ exercicio2.js
+â”œâ”€â”€ exercicio3.js
+â”œâ”€â”€ exercicio4.js
+â”œâ”€â”€ exercicio5.js
+â”œâ”€â”€ exercicio6.js
+â”œâ”€â”€ exercicio7.js
+â”œâ”€â”€ exercicio8.js
+â”œâ”€â”€ exercicio9.js
+â”œâ”€â”€ package.json
+â””â”€â”€ README.md       <-- (Voce esta aqui!)
+
