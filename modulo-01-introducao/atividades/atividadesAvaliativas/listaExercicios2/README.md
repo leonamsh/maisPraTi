@@ -36,6 +36,7 @@ node exercicio1.js
 # ou
 node exercicio2.js
 # e assim por diante para cada exercicio (exercicio1.js ate exercicio9.js)
+```
 
 🧩 Organizacao
 
@@ -51,7 +52,7 @@ node exercicio2.js
 
 📁 Estrutura do projeto
 
-seu-projeto/
+listaExercicios2/
 │
 ├── exercicio1.js
 ├── exercicio2.js
@@ -62,6 +63,5 @@ seu-projeto/
 ├── exercicio7.js
 ├── exercicio8.js
 ├── exercicio9.js
-├── package.json
 └── README.md       <-- (Voce esta aqui!)
 
