@@ -15,8 +15,8 @@ Para rodar estes exercícios, você precisará ter o Node.js instalado na sua máqui
 1.  **Clone este repositório (ou copie os arquivos):**
     Se você estiver usando Git, pode clonar o repositório para o seu computador:
     ```bash
-    git clone <URL_DO_SEU_REPOSITORIO>
-    cd <pasta_do_seu_projeto>
+    git clone https://github.com/leonamsh/maisPraTi.git
+    cd maisPraTi/modulo-01-introducao/atividades/atividadesAvaliativas/listaExercicios2
     ```
     (Se você apenas copiou os arquivos, navegue até a pasta onde eles estão salvos.)
 

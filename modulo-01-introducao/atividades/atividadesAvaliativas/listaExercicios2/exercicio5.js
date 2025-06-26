@@ -1,22 +1,21 @@
 ﻿/*
- * [cite_start]5. Debounce [cite: 7]
- * [cite_start]Crie function debounce(fn, delay) que receba uma funcao fn e um delay [cite: 7]
- * [cite_start]em ms, retornando uma nova funcao que so executa fn se nao for [cite: 7]
- * [cite_start]chamada novamente dentro do intervalo. [cite: 7]
+ * 5. Debounce
+ * Crie function debounce(fn, delay) que receba uma funcao fn e um delay
+ * em ms, retornando uma nova funcao que so executa fn se nao for
+ * chamada novamente dentro do intervalo.
  */
 
 function debounce(fn, delay) {
   let timeoutId; // Variavel para armazenar o ID do temporizador
 
-  [cite_start]; // Retorna uma nova funcao [cite: 7]
+  // Retorna uma nova funcao
   return function (...args) {
-    // ...args permite que a nova funcao aceite qualquer numero de argumentos
     // Limpa qualquer temporizador anterior
     clearTimeout(timeoutId);
 
     // Define um novo temporizador
     // A funcao `fn` sera executada apenas depois que 'delay' milissegundos passarem
-    [cite_start]; // sem que esta funcao `debounce` seja chamada novamente. [cite: 7]
+    // sem que esta funcao `debounce` seja chamada novamente.
     timeoutId = setTimeout(() => {
       fn.apply(this, args); // Executa a funcao original (fn) com os argumentos e o contexto corretos
     }, delay);
@@ -48,13 +47,13 @@ setTimeout(() => minhaFuncaoDebounced("Terceira chamada"), 500);
 setTimeout(
   () => minhaFuncaoDebounced("Quarta chamada (esta sera executada)"),
   1200,
-); // Esta sera a ultima chamada antes do delay de 1000ms
+);
 
 // Chamada que sera executada apos 1 segundo de inatividade
 setTimeout(() => {
   console.log("\nChamada apos um tempo de espera maior:");
   minhaFuncaoDebounced("Chamada final");
-}, 3000); // Garante que a ultima chamada tera tempo para ser executada
+}, 3000);
 
 console.log(
   "Aguarde para ver os resultados. A funcao real so executa apos o atraso.",

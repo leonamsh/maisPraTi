@@ -1,9 +1,9 @@
 ﻿/*
- * [cite_start]Secao 3: Arrays e Objetos Complexos [cite: 8]
- * [cite_start]7. Mapeamento e Ordenacao [cite: 8]
- * [cite_start]Dado um array produtos = [{ nome, preco }, ... , crie uma funcao que [cite: 8]
- * [cite_start]retorne um novo array apenas com os nomes, ordenados por preco [cite: 8]
- * [cite_start]crescente, usando map, sort. [cite: 8]
+ * Secao 3: Arrays e Objetos Complexos
+ * 7. Mapeamento e Ordenacao
+ * Dado um array produtos = [{ nome, preco }, ... , crie uma funcao que
+ * retorne um novo array apenas com os nomes, ordenados por preco
+ * crescente, usando map, sort.
  */
 
 function obterNomesOrdenadosPorPreco(produtos) {
@@ -11,14 +11,14 @@ function obterNomesOrdenadosPorPreco(produtos) {
   //    Isso e uma boa pratica para nao modificar o array original.
   const produtosCopia = [...produtos];
 
-  [cite_start]; // 2. Ordenar a copia dos produtos pelo preco em ordem crescente [cite: 8]
+  // 2. Ordenar a copia dos produtos pelo preco em ordem crescente
   //    O metodo `sort` compara dois elementos (a, b) e retorna:
   //    - Um numero negativo se 'a' deve vir antes de 'b'
   //    - Um numero positivo se 'a' deve vir depois de 'b'
   //    - Zero se a ordem nao importa (ou sao iguais)
   produtosCopia.sort((a, b) => a.preco - b.preco);
 
-  [cite_start]; // 3. Mapear o array ordenado para extrair apenas os nomes dos produtos [cite: 8]
+  // 3. Mapear o array ordenado para extrair apenas os nomes dos produtos
   //    O metodo `map` cria um novo array aplicando uma funcao a cada elemento
   //    do array original.
   const nomesOrdenados = produtosCopia.map((produto) => produto.nome);
@@ -43,7 +43,6 @@ console.log(produtos);
 const nomesOrdenados = obterNomesOrdenadosPorPreco(produtos);
 console.log("\nNomes dos produtos ordenados por preco crescente:");
 console.log(nomesOrdenados);
-// Expected: ["Mouse", "Fone de Ouvido", "Teclado", "Smartphone", "Notebook"]
 
 const produtos2 = [
   { nome: "Caneta", preco: 2 },
@@ -57,4 +56,3 @@ console.log(produtos2);
 const nomesOrdenados2 = obterNomesOrdenadosPorPreco(produtos2);
 console.log("Nomes dos produtos ordenados por preco crescente:");
 console.log(nomesOrdenados2);
-// Expected: ["Borracha", "Caneta", "Lapis", "Caderno"]

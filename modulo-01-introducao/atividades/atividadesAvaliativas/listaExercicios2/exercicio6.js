@@ -1,13 +1,12 @@
 ﻿/*
- * [cite_start]6. Memoization [cite: 7]
- * [cite_start]Implemente function memoize(fn) que armazene em cache chamadas [cite: 7]
- * [cite_start]anteriores de fn (por argumentos), retornando resultados instantaneos em [cite: 7]
- * [cite_start]repetidas invocacoes. [cite: 7]
+ * 6. Memoization
+ * Implemente function memoize(fn) que armazene em cache chamadas
+ * anteriores de fn (por argumentos), retornando resultados instantaneos em
+ * repetidas invocacoes.
  */
 
 function memoize(fn) {
-  const cache = {};
-  [cite_start]; // Objeto para armazenar os resultados em cache [cite: 7]
+  const cache = {}; // Objeto para armazenar os resultados em cache
 
   // Retorna uma nova funcao "memoizada"
   return function (...args) {
@@ -16,17 +15,16 @@ function memoize(fn) {
     // que pode ser usada como chave em um objeto.
     const key = JSON.stringify(args);
 
-    [cite_start]; // Verifica se o resultado para esta chave ja esta no cache [cite: 7]
+    // Verifica se o resultado para esta chave ja esta no cache
     if (cache[key]) {
       console.log(`(Cache) Retornando resultado para a chave: ${key}`);
-      return cache[key];
-      [cite_start]; // Se estiver, retorna o resultado do cache [cite: 7]
+      return cache[key]; // Se estiver, retorna o resultado do cache
     } else {
       // Se nao estiver no cache, executa a funcao original
       console.log(`(Calculando) Calculando resultado para a chave: ${key}`);
       const result = fn.apply(this, args); // Executa a funcao original com os argumentos
 
-      [cite_start]; // Armazena o resultado no cache antes de retorna-lo [cite: 7]
+      // Armazena o resultado no cache antes de retorna-lo
       cache[key] = result;
       return result;
     }
@@ -49,22 +47,22 @@ const fibonacciMemoized = memoize(fibonacci);
 
 console.log("Chamando fibonacciMemoized(10) pela primeira vez:");
 console.time("fibonacciMemoized(10) - 1a vez");
-console.log("Resultado:", fibonacciMemoized(10)); // Sera calculado
+console.log("Resultado:", fibonacciMemoized(10));
 console.timeEnd("fibonacciMemoized(10) - 1a vez");
 
 console.log("\nChamando fibonacciMemoized(10) novamente (deve vir do cache):");
 console.time("fibonacciMemoized(10) - 2a vez");
-console.log("Resultado:", fibonacciMemoized(10)); // Vira do cache
+console.log("Resultado:", fibonacciMemoized(10));
 console.timeEnd("fibonacciMemoized(10) - 2a vez");
 
 console.log("\nChamando fibonacciMemoized(5) pela primeira vez:");
 console.time("fibonacciMemoized(5) - 1a vez");
-console.log("Resultado:", fibonacciMemoized(5)); // Sera calculado
+console.log("Resultado:", fibonacciMemoized(5));
 console.timeEnd("fibonacciMemoized(5) - 1a vez");
 
 console.log("\nChamando fibonacciMemoized(5) novamente (deve vir do cache):");
 console.time("fibonacciMemoized(5) - 2a vez");
-console.log("Resultado:", fibonacciMemoized(5)); // Vira do cache
+console.log("Resultado:", fibonacciMemoized(5));
 console.timeEnd("fibonacciMemoized(5) - 2a vez");
 
 // Exemplo com outra funcao mais simples
