@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Lista de Compras</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="input-row">
+        <input
+          type="text"
+          id="inputItem"
+          class="item-input"
+          placeholder="Digite aqui o item"
+        />
+        <button id="btnAdicionar" class="btn-add">Adicionar</button>
+        <button id="btnLimpar" class="btn-clear">Limpar</button>
+      </div>
+      <div class="constrols-row">
+        <span id="itemCount" class="item-count">Total de Itens: 0</span>
+        <div class="filter-sort-group">
+          <select id="filterSelect" class="filter-sort-select">
+            <option value="all">Todos</option>
+            <option value="pending">Pendentes</option>
+            <option value="completed">Comprados</option>
+          </select>
+          <select id="sortSelect" class="filter-sort-select">
+            <option value="default">Ordem Padrão</option>
+            <option value="alphabetical">Alfabética (A-Z)</option>
+            <option value="status">Status (Comprado primeiro)</option>
+          </select>
+        </div>
+      </div>
+      <div class="list-box">
+        <ul id="listaItens"></ul>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
