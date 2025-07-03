@@ -2,7 +2,7 @@ const inputItem = document.getElementById("inputItem");
 const listaItens = document.getElementById("listaItens");
 const btnAdicionar = document.getElementById("btnAdicionar");
 const btnLimpar = document.getElementById("btnLimpar");
-
+const itemCountSpan = document.getElementById("itemCount");
 let itens = [
   { text: "Maças", comprado: false },
   { text: "Carne", comprado: true },
