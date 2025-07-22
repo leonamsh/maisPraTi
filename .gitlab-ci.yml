@@ -1,10 +1,20 @@
-# The Docker image that will be used to build your app
-image: gitlab-ci.yml
-create-pages:
-  pages:
-    # The folder that contains the files to be exposed at the Page URL
-    publish: public
+# A imagem Docker que será usada para construir seu aplicativo.
+# Para projetos Vite (Node.js), usaremos uma imagem Node.
+image: node:latest # Uma imagem Node.js para instalar dependências e construir o projeto
+
+pages:
+  stage: deploy
+  cache:
+    paths:
+      - node_modules/ # Cacheia o diretório node_modules para builds mais rápidas
+  script:
+    - npm install # Instala as dependências do projeto
+    - npm run build # Executa o comando de build do Vite, que por padrão gera a pasta 'dist'
+    - rm -rf public # Remove o diretório 'public' existente, se houver, para evitar conflitos
+    - mv dist public # Move o conteúdo da pasta 'dist' (gerada pelo Vite) para 'public'
+  artifacts:
+    paths:
+      - public # Este é o diretório que o GitLab Pages vai usar para servir seu site
   rules:
-    # This ensures that only pushes to the default branch will trigger
-    # a pages deploy
+    # Isso garante que apenas pushes para o branch padrão irão disparar um deploy de pages
     - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
