@@ -38,5 +38,11 @@ pages:
   artifacts:
     paths:
       # Define qual pasta o GitLab Pages deve usar.
-      #
-      
+      # Este caminho é relativo à RAIZ do repositório,
+      # apontando para a pasta 'public' que foi criada DENTRO do seu projeto 'portifolio'.
+      - modulo-02-frontend/portifolio/public
+    expire_in: 1 week # Opcional: define por quanto tempo os artefatos serão mantidos
+  rules:
+    # Este job será executado apenas quando houver um push para o branch padrão do seu repositório
+    # (geralmente 'main' ou 'master').
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
