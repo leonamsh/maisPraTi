@@ -1,21 +1,27 @@
-/* Frappe Theme
- *
- * text: #c6d0f5
- * text-secondary: #8CAAEE
- * text-background: #B5BFE2
- * prompt: #EA999C
- * URLs: #f2d5cf
- * selection: #626880
- * active border: #babbf1
- * background: #303446
- * */
+:root {
+  /* Cyberdream.nvim Palette */
+  --cyberdream-bg: #16181a;
+  --cyberdream-bg-alt: #1e2124;
+  --cyberdream-bg-highlight: #3c4048;
+  --cyberdream-fg: #ffffff; 
+  --cyberdream-grey: #7b8496;
+  --cyberdream-blue: #5ea1ff;
+  --cyberdream-green: #5eff6c;
+  --cyberdream-cyan: #5ef1ff;
+  --cyberdream-red: #ff6e5e;
+  --cyberdream-yellow: #f1ff5e;
+  --cyberdream-magenta: #ff5ef1;
+  --cyberdream-pink: #ff5ea0;
+  --cyberdream-orange: #ffbd5e;
+  --cyberdream-purple: #bd5eff;
+}
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap");
 
 * {
-  background: #303446;
+  background: var(--cyberdream-bg-alt);
   font-family: "IBM Plex Mono", monospace;
   font-weight: 500;
-  color: #c6d0f5;
+  color: var(--cyberdream-orange);
 }
 
 body {
@@ -31,42 +37,42 @@ h3 {
   font-size: inherit;
   padding: 0 0.5em;
   margin-bottom: 0;
-  background-color: #684eff;
-  color: #fafafa;
+  background-color: var(--cyberdream-cyan);
+  color: var(--cyberdream-fg);
 }
 
 a {
-  color: #f2d5cf;
+  color: var(--cyberdream-grey);
   text-decoration: none;
 }
 
 footer {
-  color: #b5bfe2;
+  color: var(--cyberdream-purple);
   margin-top: auto;
 }
 
 .text-background {
-  color: #b5bfe2;
+  color: var(--cyberdream-purple);
 }
 
 .text-secondary {
-  color: #8caaee;
+  color: var(--cyberdream-cyan);
 }
 
 .bluesky:hover {
-  color: #208bfe;
+  color: var(--cyberdream-blue);
 }
 
 .instagram:hover {
-  color: #f5006f;
+  color: var(--cyberdream-red);
 }
 
 .github:hover {
-  color: #a6d189;
+  color: var(--cyberdream-green);
 }
 
 .cursor {
-  color: #f2d5cf;
+  color: var(--cyberdream-grey);
 }
 
 .output {
@@ -82,7 +88,7 @@ footer {
     blink 0.5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 10px solid #f2d5cf;
+  border-right: 10px solid var(--cyberdream-grey);
 }
 
 /* animation */
