@@ -1,17 +1,23 @@
-image: node:latest
+# ... (parte superior do .gitlab-ci.yml)
 
-pages:
-  stage: deploy
-  cache:
-    key: ${CI_COMMIT_REF_SLUG}
-    paths:
-      - modulo-02-frontend/portifolio/node_modules/
   script:
-    - cd modulo-02-frontend/portifolio/ 
+    - cd modulo-02-frontend/portifolio/
     - npm install
-    - npm run build 
-    - rm -rf public 
-    - mv dist public 
+    - npm run build
+    # --- Adicione estas linhas para debug AQUI ---
+    - echo "--- Conteúdo de 'portifolio' antes de mover dist para public ---"
+    - ls -la # Lista o conteúdo da pasta 'portifolio' (incluindo 'dist' e 'public' original)
+    - echo "--- Conteúdo de 'dist' (se existir) ---"
+    - test -d dist && ls -la dist || echo "Pasta 'dist' não encontrada ou vazia."
+    # --- Fim das linhas de debug ---
+    - rm -rf public
+    - mv dist public
+    # --- Adicione estas linhas de debug DEPOIS de mover ---
+    - echo "--- Conteúdo de 'portifolio' DEPOIS de mover dist para public ---"
+    - ls -la # Lista o conteúdo da pasta 'portifolio' (agora com a nova 'public')
+    - echo "--- Conteúdo da nova pasta 'public' ---"
+    - ls -la public || echo "Nova pasta 'public' não encontrada ou vazia."
+    # --- Fim das linhas de debug ---
   artifacts:
     paths:
       - modulo-02-frontend/portifolio/public
