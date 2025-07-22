@@ -8,6 +8,7 @@ pages:
       - modulo-02-frontend/portifolio/node_modules/
   script:
     - cd modulo-02-frontend/portifolio/ 
+    - npm install
     - npm run build 
     - rm -rf public 
     - mv dist public 
