@@ -1,0 +1,36 @@
+function translatePigLatin(palavra) {
+  const vogais = ["a", "e", "i", "o", "u", "y"];
+  let indicePrimeiraVogal = -1;
+  const lowerWord = palavra.toLowerCase();
+
+  for (let i = 0; i < lowerWord.length; i++) {
+    if (vogais.includes(lowerWord[i])) {
+      indicePrimeiraVogal = i;
+      break;
+    }
+  }
+
+  if (indicePrimeiraVogal === -1 || palavra.length === 0) {
+    return palavra + "ay";
+  }
+
+  let prefix;
+  let stem;
+
+  if (indicePrimeiraVogal === 0) {
+    prefix = "";
+    stem = palavra;
+  } else {
+    prefix = palavra.substring(0, indicePrimeiraVogal);
+    stem = palavra.substring(indicePrimeiraVogal);
+  }
+  return stem + prefix + "ay";
+}
+console.log("Input: stop -> Output:", translatePigLatin("stop"));
+console.log("Input: no -> Output:", translatePigLatin("no"));
+console.log("Input: people -> Output:", translatePigLatin("people"));
+console.log("Input: bubble -> Output:", translatePigLatin("bubble"));
+console.log("Input: under -> Output:", translatePigLatin("under"));
+console.log("Input: admitted -> Output:", translatePigLatin("admitted"));
+console.log("Input: away -> Output:", translatePigLatin("away"));
+console.log("Input: sandwich -> Output:", translatePigLatin("sandwich"));
