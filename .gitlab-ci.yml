@@ -1,16 +1,33 @@
-# ... (parte superior do .gitlab-ci.yml)
+# Este arquivo .gitlab-ci.yml deve estar na RAIZ do seu repositório Git.
 
+image: node:latest # Usamos uma imagem Node.js para os comandos npm e vite
+
+pages:
+  stage: deploy # Define o estágio do job como 'deploy'
+  cache:
+    key: ${CI_COMMIT_REF_SLUG} # Chave de cache baseada no nome do branch/tag para evitar conflitos
+    paths:
+      # Caminho para o cache de node_modules, relativo à raiz do repositório
+      - modulo-02-frontend/portifolio/node_modules/
   script:
+    # 1. Entra na pasta do seu projeto Vite
     - cd modulo-02-frontend/portifolio/
+    # 2. Instala as dependências do Node.js/Vite
     - npm install
-    - npm run build
     # --- Adicione estas linhas para debug AQUI ---
     - echo "--- Conteúdo de 'portifolio' antes de mover dist para public ---"
     - ls -la # Lista o conteúdo da pasta 'portifolio' (incluindo 'dist' e 'public' original)
     - echo "--- Conteúdo de 'dist' (se existir) ---"
     - test -d dist && ls -la dist || echo "Pasta 'dist' não encontrada ou vazia."
     # --- Fim das linhas de debug ---
+    # 3. Executa o build do Vite, que por padrão cria a pasta 'dist'
+    - npm run build
+    # 4. Remove a pasta 'public' existente (se houver, da sua estrutura original)
+    #    para evitar que arquivos antigos se misturem ou causem problemas.
+    #    Este 'rm -rf public' opera DENTRO de 'modulo-02-frontend/portifolio/'
     - rm -rf public
+    # 5. Move o conteúdo da pasta 'dist' (gerada pelo build) para uma nova pasta 'public'.
+    #    Isso também acontece DENTRO de 'modulo-02-frontend/portifolio/'
     - mv dist public
     # --- Adicione estas linhas de debug DEPOIS de mover ---
     - echo "--- Conteúdo de 'portifolio' DEPOIS de mover dist para public ---"
@@ -20,6 +37,6 @@
     # --- Fim das linhas de debug ---
   artifacts:
     paths:
-      - modulo-02-frontend/portifolio/public
-  rules:
-    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+      # Define qual pasta o GitLab Pages deve usar.
+      #
+      
