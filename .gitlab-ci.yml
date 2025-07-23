@@ -1,35 +1,21 @@
-# Este arquivo .gitlab-ci.yml deve estar na RAIZ do seu repositório Git.
-
-image: node:latest # Usamos uma imagem Node.js para os comandos npm e vite
+image: node:latest
 
 pages:
-  stage: deploy # Define o estágio do job como 'deploy'
+  stage: deploy
   cache:
-    key: ${CI_COMMIT_REF_SLUG} # Chave de cache baseada no nome do branch/tag para evitar conflitos
+    key: ${CI_COMMIT_REF_SLUG}
     paths:
-      # Caminho para o cache de node_modules, relativo à raiz do repositório
       - modulo-02-frontend/portifolio/node_modules/
   script:
-    # 1. Entra na pasta do seu projeto Vite
     - cd modulo-02-frontend/portifolio/
-    # 2. Instala as dependências do Node.js/Vite
     - npm install
-    # 3. Executa o build do Vite, que por padrão cria a pasta 'dist'
     - npm run build
-    # 4. Remove a pasta 'public' existente (se houver, da sua estrutura original)
-    #    Este 'rm -rf public' opera DENTRO de 'modulo-02-frontend/portifolio/'
+    - cd ../../
     - rm -rf public
-    # 5. Move o conteúdo da pasta 'dist' (gerada pelo build) para uma nova pasta 'public'.
-    #    Isso também acontece DENTRO de 'modulo-02-frontend/portifolio/'
-    - mv dist public
-    # NOVO PASSO CRÍTICO: Move a pasta 'public' recém-criada (que contém o site)
-    # para a RAIZ do diretório de trabalho do Runner, renomeando-a para 'public'.
-    # Isso garante que a pasta 'public' esteja onde o GitLab Pages espera.
-    - mv public ../../ # Move 'public' de 'portifolio' para a raiz do repositório
+    - mv modulo-02-frontend/portifolio/dist public
   artifacts:
     paths:
-      # Agora, o artefato é a pasta 'public' que está na RAIZ do repositório (diretório de trabalho do Runner)
-      - public # <--- AJUSTADO AQUI!
+      - public
     expire_in: 1 week
   rules:
     - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
