@@ -2,7 +2,7 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "/maisprati-a929dd/",
+  base: "./",
   build: {
     outDir: "dist",
   },
