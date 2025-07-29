@@ -1,0 +1,16 @@
+{
+  "name": "atividadesavaliativas",
+  "version": "1.0.0",
+  "description": "Este projeto contém a resolução dos exercícios avaliativos do módulo 01 do curso **MaisPraTi**. Cada exercício está modularizado em seu próprio arquivo, e há um menu interativo para execução via terminal.",
+  "main": "atividadeObrigatoria.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
