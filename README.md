@@ -1,26 +1,63 @@
-<!-- markdownlint-disable MD013 -->
+# 🎬 React Consumindo API (OMDb)
 
-# Desafio: Aplicação React consumindo a API do IMDB
+Aplicação em **React** que consome a [OMDb API (The Open Movie Database)](https://www.omdbapi.com/)  
+Permite buscar filmes, ver detalhes e salvar favoritos no navegador.
 
-## Visão Geral
+---
 
-Você deverá criar uma aplicação em React que consuma a API do IMDB (OMDb) para permitir que usuários busquem filmes, vejam detalhes e montem uma lista de favoritos.
+## 🚀 Como rodar o projeto
 
-## Funcionalidades Obrigatórias
+### 1. Clonar o repositório
+```bash
+git clone https://github.com/leonamsh/maisPraTi.git
+cd "maisPraTi/3-reactjs/2 - desafio/react-consumindo-api"
+2. Acessar a branch correta
+bash
+Copiar código
+git checkout consumoAPI_ReactJS
+3. Instalar as dependências
+bash
+Copiar código
+npm install
+4. Criar o arquivo .env.local
+Na raiz do projeto, crie um arquivo chamado .env.local e adicione sua chave da OMDb API:
 
-1. _Página de Busca_
-   - [ ] Um campo de texto para o usuário digitar o termo.
-   - [ ] Exibir lista de resultados com pôster, título, ano e botão para ver detalhes.
+env
+Copiar código
+VITE_OMDB_API_KEY=SUA_CHAVE_AQUI
+Você pode solicitar uma chave gratuita em omdbapi.com/apikey.aspx.
 
-2. _Paginação_
-   - [ ] Permitir navegar pelas páginas de resultados.
+5. Rodar o servidor de desenvolvimento
+bash
+Copiar código
+npm run dev
+6. Abrir no navegador
+O terminal mostrará um endereço, geralmente:
 
-3. _Página de Detalhes_
-   - [ ] Exibir informações completas (diretor, elenco, sinopse, avaliação) ao clicar em um filme.
+arduino
+Copiar código
+http://localhost:5173/
+Acesse esse link no navegador para ver a aplicação rodando.
 
-4. _Lista de Favoritos_
-   - [ ] Botão para adicionar/remover filmes da lista de favoritos.
-   - [ ] Persistir favoritos em localStorage.
+🛠️ Tecnologias utilizadas
+React
 
-5. _Tratamento de Erros & Loading_
-   - [ ] Exibir indicador enquanto aguarda resposta e mensagens de erro quando necessário
+Vite
+
+React Router
+
+Context API (para favoritos)
+
+LocalStorage (persistência de favoritos)
+
+📂 Funcionalidades
+Página de busca: pesquisar filmes e navegar por páginas de resultados
+
+Página de detalhes: informações completas de um filme
+
+Lista de favoritos: adicionar/remover filmes e manter salvos no navegador
+
+Loading & erros: feedback visual durante requisições
+
+💡 Observação
+Este projeto foi desenvolvido como desafio prático para o curso Trilha Dev. Full Stack Jr. 2025 da +praTi / Codifica.
