@@ -1,4 +1,18 @@
 /* ========= Resetzinho esperto e tokens ========= */
+:root {
+  --bg: #0b1320;
+  --card: #111a2b;
+  --card-2: #0e1726;
+  --fg: #e5ecff;
+  --muted: #94a3b8;
+  --primary: #5b9cff;
+  --primary-600: #3a7dff;
+  --accent: #7dd3fc;
+  --ring: #94a3ff;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  --radius: 16px;
+  --gap: 20px;
+}
 *,
 *::before,
 *::after {
@@ -26,21 +40,6 @@ body {
   -webkit-font-smoothing: antialiased;
   background: var(--bg);
   color: var(--fg);
-}
-
-:root {
-  --bg: #0b1320;
-  --card: #111a2b;
-  --card-2: #0e1726;
-  --fg: #e5ecff;
-  --muted: #94a3b8;
-  --primary: #5b9cff;
-  --primary-600: #3a7dff;
-  --accent: #7dd3fc;
-  --ring: #94a3ff;
-  --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-  --radius: 16px;
-  --gap: 20px;
 }
 
 @media (prefers-color-scheme: light) {
@@ -242,4 +241,121 @@ p[style*="color: red"] {
 ::selection {
   background: #1d4ed8;
   color: white;
+}
+
+/* ========= Navegação ========= */
+.site-header {
+  background: var(--card);
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+}
+
+.topnav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navlink {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.navlink:hover {
+  color: var(--accent);
+}
+
+.navlink.active {
+  color: var(--primary);
+}
+
+/* ======== Ações no card ======== */
+.movie-card .actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px 16px;
+}
+
+/* Base */
+.btn {
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  transition:
+    transform 0.06s ease,
+    background 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+  box-shadow: var(--shadow);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none; /* faz o <Link> parecer botão */
+  color: var(--fg);
+}
+.btn:hover {
+  transform: translateY(-1px);
+}
+.btn:active {
+  transform: translateY(0);
+}
+.btn:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Variantes */
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--primary-600);
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+  color: var(--fg);
+}
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+/* Favorito ativo (remove) */
+.btn-fav.is-active {
+  background: #ef4444; /* vermelho */
+}
+.btn-fav.is-active:hover {
+  background: #dc2626;
+}
+
+.btn-fav svg {
+  width: 1.5em;
+  height: 1.5em;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+/* Responsivo: empilha os botões quando o card for estreito */
+@media (max-width: 380px) {
+  .movie-card .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .movie-card .actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
 }

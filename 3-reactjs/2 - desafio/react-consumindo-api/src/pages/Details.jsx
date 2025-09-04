@@ -7,42 +7,38 @@ export default function Details() {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState("");
   const { isFavorite, add, remove } = useFavorites();
 
   useEffect(() => {
     let active = true;
+
     (async () => {
       setLoading(true);
-      setError(null);
+      setError("");
       try {
         const data = await getMovieById(id);
-        if (active) setMovie(data);
+        if (!active) return;
+        setMovie(data);
       } catch (e) {
-        if (active) setError(e.message);
+        if (!active) return;
+        setError(e.message || "Falha ao carregar detalhes.");
       } finally {
         if (active) setLoading(false);
       }
     })();
+
     return () => {
       active = false;
     };
   }, [id]);
 
-  if (loading) return <p>Carregando...</p>;
-  if (error) return <p style={{ color: "red" }}>{error}</p>;
-  if (!movie) return null;
+  if (loading) return <p>Carregando…</p>;
+  if (error) return <p style={{ color: "salmon" }}>{error}</p>;
+  if (!movie) return <p>Filme não encontrado.</p>;
 
   const fav = isFavorite(movie.imdbID);
-  const toggle = () =>
-    fav
-      ? remove(movie.imdbID)
-      : add({
-          imdbID: movie.imdbID,
-          Title: movie.Title,
-          Year: movie.Year,
-          Poster: movie.Poster,
-        });
+  const toggle = () => (fav ? remove(movie.imdbID) : add(movie));
 
   return (
     <article className="details">
@@ -54,7 +50,7 @@ export default function Details() {
         }
         alt={movie.Title}
       />
-      <div>
+      <div className="meta">
         <h2>
           {movie.Title} ({movie.Year})
         </h2>

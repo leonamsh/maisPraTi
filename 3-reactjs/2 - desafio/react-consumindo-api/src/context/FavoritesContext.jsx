@@ -1,29 +1,41 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
-const FavoritesContext = createContext();
+const STORAGE_KEY = "favorites";
+const FavoritesContext = createContext(null);
 
 export function FavoritesProvider({ children }) {
   const [favorites, setFavorites] = useState(() => {
-    const raw = localStorage.getItem("favorites");
-    return raw ? JSON.parse(raw) : [];
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch {
+      return {};
+    }
   });
 
   useEffect(() => {
-    localStorage.setItem("favorites", JSON.stringify(favorites));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(favorites));
   }, [favorites]);
 
   const add = (movie) =>
-    setFavorites((prev) =>
-      prev.some((m) => m.imdbID === movie.imdbID) ? prev : [...prev, movie],
-    );
+    setFavorites((prev) => ({ ...prev, [movie.imdbID]: movie }));
 
   const remove = (id) =>
-    setFavorites((prev) => prev.filter((m) => m.imdbID !== id));
+    setFavorites((prev) => {
+      const copy = { ...prev };
+      delete copy[id];
+      return copy;
+    });
 
-  const isFavorite = (id) => favorites.some((m) => m.imdbID === id);
+  const isFavorite = (id) => Boolean(favorites[id]);
 
   const value = useMemo(
-    () => ({ favorites, add, remove, isFavorite }),
+    () => ({
+      favorites: Object.values(favorites),
+      add,
+      remove,
+      isFavorite,
+    }),
     [favorites],
   );
 
@@ -34,4 +46,9 @@ export function FavoritesProvider({ children }) {
   );
 }
 
-export const useFavorites = () => useContext(FavoritesContext);
+export const useFavorites = () => {
+  const ctx = useContext(FavoritesContext);
+  if (!ctx)
+    throw new Error("useFavorites deve ser usado dentro do FavoritesProvider");
+  return ctx;
+};
