@@ -1,1 +1,245 @@
+/* ========= Resetzinho esperto e tokens ========= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    "Noto Sans",
+    "Apple Color Emoji",
+    "Segoe UI Emoji";
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background: var(--bg);
+  color: var(--fg);
+}
 
+:root {
+  --bg: #0b1320;
+  --card: #111a2b;
+  --card-2: #0e1726;
+  --fg: #e5ecff;
+  --muted: #94a3b8;
+  --primary: #5b9cff;
+  --primary-600: #3a7dff;
+  --accent: #7dd3fc;
+  --ring: #94a3ff;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  --radius: 16px;
+  --gap: 20px;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #0b1320;
+    --fg: #e5ecff;
+  }
+}
+
+/* ========= Layout ========= */
+.App {
+  min-height: 100%;
+}
+
+.App-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+  background: linear-gradient(
+    180deg,
+    rgba(11, 19, 32, 0.9),
+    rgba(11, 19, 32, 0.6) 60%,
+    transparent
+  );
+  padding: 28px 20px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.App-header h1 {
+  margin: 0 0 8px 0;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  font-size: clamp(20px, 2.5vw, 36px);
+  background: linear-gradient(90deg, #fff, var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+main {
+  max-width: 1200px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+/* ========= Barra de busca ========= */
+form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+input[type="text"] {
+  flex: 1;
+  min-width: 240px;
+  height: 42px;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--card);
+  color: var(--fg);
+  outline: none;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
+}
+input[type="text"]::placeholder {
+  color: #94a3b8aa;
+}
+input[type="text"]:focus {
+  border-color: var(--ring);
+  box-shadow: 0 0 0 3px rgba(148, 163, 255, 0.15);
+  background: var(--card-2);
+}
+
+button {
+  height: 42px;
+  padding: 0 16px;
+  border-radius: 12px;
+  border: 0;
+  background: var(--primary);
+  color: white;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition:
+    transform 0.05s ease,
+    background 0.15s ease,
+    box-shadow 0.15s ease;
+}
+button:hover {
+  background: var(--primary-600);
+}
+button:active {
+  transform: translateY(1px) scale(0.99);
+}
+button:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* ========= Lista de filmes ========= */
+.movie-list {
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+@media (min-width: 560px) {
+  .movie-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 900px) {
+  .movie-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1200px) {
+  .movie-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* ========= Card ========= */
+.movie-card {
+  background: linear-gradient(180deg, var(--card), var(--card-2));
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+.movie-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  border-color: rgba(125, 211, 252, 0.35);
+}
+
+.movie-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+
+/* Conteúdo do card (título/ano) */
+.movie-card h3 {
+  margin: 12px 14px 2px;
+  font-size: clamp(14px, 1.6vw, 18px);
+  line-height: 1.25;
+}
+.movie-card p {
+  margin: 0 14px 14px;
+  color: var(--muted);
+}
+
+/* ========= Pagination ========= */
+.pagination {
+  margin: 26px auto 12px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.pagination > span {
+  color: var(--muted);
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.pagination button[disabled] {
+  filter: grayscale(0.4);
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ========= Estados ========= */
+p[style*="color: red"] {
+  background: #ef444422;
+  border: 1px solid #ef4444;
+  padding: 10px 12px;
+  border-radius: 12px;
+}
+
+.App .movie-list + .pagination {
+  margin-top: 22px;
+}
+
+/* ========= Pequenos toques ========= */
+::selection {
+  background: #1d4ed8;
+  color: white;
+}

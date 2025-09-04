@@ -5,8 +5,9 @@ function SearchBar({ onSearch }) {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    if (query.trim()) {
-      onSearch(query);
+    const cleaned = query.trim().replace(/\s+/g, " ");
+    if (cleaned) {
+      onSearch(cleaned);
     }
   };
   return (
