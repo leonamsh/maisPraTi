@@ -13,6 +13,9 @@
   --radius: 16px;
   --gap: 20px;
 }
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
 *,
 *::before,
 *::after {
@@ -25,17 +28,7 @@ body,
 }
 body {
   margin: 0;
-  font-family:
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    Segoe UI,
-    Roboto,
-    "Helvetica Neue",
-    Arial,
-    "Noto Sans",
-    "Apple Color Emoji",
-    "Segoe UI Emoji";
+  font-family: "Montserrat", sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   background: var(--bg);
@@ -341,9 +334,9 @@ p[style*="color: red"] {
   background: #dc2626;
 }
 
-.btn-fav svg {
-  width: 1.5em;
-  height: 1.5em;
+.btn svg {
+  width: 20px;
+  height: 20px;
   flex-shrink: 0;
   vertical-align: middle;
 }

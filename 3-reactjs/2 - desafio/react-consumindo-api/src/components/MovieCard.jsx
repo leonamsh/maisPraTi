@@ -3,9 +3,9 @@ import { useFavorites } from "../context/FavoritesContext";
 
 function Heart({ filled }) {
   return (
-    <svg viewBox="0 0 24 24" width="32" height="32">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
       <path
-        d="M12 21s-6.7-4.2-9.6-7.1C.9 12.4 1 9.5 3.2 7.6c1.9-1.6 4.7-1.2 6.3.4L12 10.5l2.5-2.5c1.6-1.6 4.4-2 6.3-.4 2.2 1.9 2.3 4.8.8 6.3C18.7 16.7 12 21 12 21z"
+        d="M12 21s-6.716-4.23-9.6-7.114C.929 12.413 1 9.5 3.2 7.6c1.9-1.6 4.7-1.2 6.3.4L12 10.5l2.5-2.5c1.6-1.6 4.4-2 6.3-.4 2.2 1.9 2.3 4.8.8 6.3C18.7 16.7 12 21 12 21z"
         fill={filled ? "currentColor" : "none"}
         stroke="currentColor"
         strokeWidth="2"
