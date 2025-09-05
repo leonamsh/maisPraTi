@@ -10,7 +10,7 @@ Permite buscar filmes, ver detalhes e salvar favoritos no navegador.
 ### 1. Clonar o repositório
 ```bash
 git clone https://github.com/leonamsh/maisPraTi.git
-cd "maisPraTi/3-reactjs/2 - desafio/react-consumindo-api"
+cd maisPraTi
 ```
 
 2. Acessar a branch correta
@@ -34,9 +34,12 @@ Você pode solicitar uma chave gratuita em omdbapi.com/apikey.aspx.
 ```bash
 npm run dev
 ```
+
 6. Abrir no navegador
 O terminal mostrará um endereço, geralmente:
+
 <http://localhost:5173/> 
+
 Acesse esse link no navegador para ver a aplicação rodando.
 
 ## 🛠️ Tecnologias utilizadas
