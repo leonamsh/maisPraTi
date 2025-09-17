@@ -62,6 +62,8 @@ npm run dev
 
 Abra no navegador a URL que o Vite indicar (geralmente http://localhost:5173)
 
+---
+
 ## 📦 Pré-requisitos
 
 - Node.js 18+ (recomendado 20+)
