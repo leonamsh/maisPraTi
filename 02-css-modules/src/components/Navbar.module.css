@@ -1,0 +1,52 @@
+.root {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+.actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.badge {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+.btn {
+  height: 36px;
+  padding: 0 var(--sp-4);
+  border-radius: calc(var(--radius) - 4px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition:
+    background var(--dur) var(--ease),
+    color var(--dur) var(--ease),
+    transform var(--dur) var(--ease),
+    opacity var(--dur) var(--ease);
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--fg);
+}
+.btn:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+:global(html[data-theme="dark"]) .btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+.btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}

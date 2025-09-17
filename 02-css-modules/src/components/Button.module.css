@@ -1,0 +1,53 @@
+.btn {
+  height: 36px;
+  padding: 0 var(--sp-4);
+  border-radius: calc(var(--radius) - 4px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition:
+    background var(--dur) var(--ease),
+    color var(--dur) var(--ease),
+    transform var(--dur) var(--ease),
+    opacity var(--dur) var(--ease);
+  border: 1px solid transparent;
+  user-select: none;
+}
+.btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.solid {
+  background: var(--primary);
+  color: var(--primary-contrast);
+}
+.solid:hover {
+  transform: translateY(-1px);
+}
+.outline {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--fg);
+}
+.outline:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+:global(html[data-theme="dark"]) .outline:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+.ghost {
+  background: transparent;
+  color: var(--fg);
+}
+.ghost:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+:global(html[data-theme="dark"]) .ghost:hover {
+  background: rgba(255, 255, 255, 0.06);
+}

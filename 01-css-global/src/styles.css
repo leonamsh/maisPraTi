@@ -1,0 +1,223 @@
+:root {
+  --bg: #ffffff;
+  --fg: #111827;
+  --muted: #6b7280;
+  --primary: #2563eb;
+  --primary-contrast: #ffffff;
+  --border: #e5e7eb;
+  --card: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.08);
+  --radius: 12px;
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --dur: 200ms;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+html[data-theme="dark"] {
+  --bg: #0b1220;
+  --fg: #e5e7eb;
+  --muted: #9ca3af;
+  --primary: #60a5fa;
+  --primary-contrast: #0b1220;
+  --border: #1f2937;
+  --card: #111827;
+  --shadow: rgba(0, 0, 0, 0.5);
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font:
+    14px/1.4 system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Ubuntu,
+    Cantarell,
+    "Noto Sans",
+    sans-serif;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.grid {
+  display: grid;
+  gap: var(--sp-4);
+  padding: var(--sp-4);
+}
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1025px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition:
+    transform var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px var(--shadow);
+}
+.card:focus-within {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 1/1;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.06),
+    rgba(0, 0, 0, 0.04),
+    rgba(0, 0, 0, 0.06)
+  );
+}
+.media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.title {
+  font-weight: 600;
+  line-height: 1.2;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: calc(1.2em * 2 + 2px);
+}
+
+.badge {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+.price {
+  font-weight: 700;
+}
+.rating {
+  font-feature-settings: "kern";
+}
+
+.btn {
+  height: 36px;
+  padding: 0 var(--sp-4);
+  border-radius: calc(var(--radius) - 4px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition:
+    background var(--dur) var(--ease),
+    color var(--dur) var(--ease),
+    transform var(--dur) var(--ease),
+    opacity var(--dur) var(--ease);
+  border: 1px solid transparent;
+  user-select: none;
+}
+.btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.btn.solid {
+  background: var(--primary);
+  color: var(--primary-contrast);
+}
+.btn.solid:hover {
+  transform: translateY(-1px);
+}
+.btn.outline {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--fg);
+}
+.btn.outline:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+html[data-theme="dark"] .btn.outline:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+.btn.ghost {
+  background: transparent;
+  color: var(--fg);
+}
+.btn.ghost:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+html[data-theme="dark"] .btn.ghost:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.skel {
+  animation: skel 1.2s infinite linear;
+  background-size: 200% 100%;
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0)
+  );
+}
+@keyframes skel {
+  from {
+    background-position: -200% 0;
+  }
+  to {
+    background-position: 200% 0;
+  }
+}
