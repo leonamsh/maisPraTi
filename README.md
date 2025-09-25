@@ -156,7 +156,6 @@ O Maven irá compilar todo o código-fonte, compilar os testes, executá-los e, 
 
 ## 🧑‍💻 Autor
 
-**[Seu Nome Aqui]**
+**Leonam Monteiro**
 
-- Github: `[@seu-usuario-github]`
-- LinkedIn: `[seu-linkedin]`
+- Github: `[@leonamsh]`
